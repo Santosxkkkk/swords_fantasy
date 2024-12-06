@@ -1,7 +1,7 @@
 extends Node
 
 @export var coin_2 : PackedScene = preload("res://Coin2.tscn")
-@export var confetti : PackedScene
+@export var confetti : PackedScene = preload("res://ConfettiParticles.tscn")
 
 var min_positions : Vector2 = Vector2(20, 176)
 var max_positions : Vector2 = Vector2(520, 756)
