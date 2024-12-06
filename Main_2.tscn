@@ -1,8 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://1soenn0r8n15"]
+[gd_scene load_steps=31 format=3 uid="uid://1soenn0r8n15"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_e4cyl"]
-[ext_resource type="PackedScene" uid="uid://woia2loyyxwe" path="res://Coin.tscn" id="2_1fjyj"]
-[ext_resource type="PackedScene" uid="uid://ltcudyjxydpw" path="res://ConfettiParticles.tscn" id="3_py037"]
+[ext_resource type="Script" path="res://main_2.gd" id="1_wdq35"]
 [ext_resource type="FontFile" uid="uid://brgyjv68o5ug3" path="res://Starborn.otf" id="4_hv7sa"]
 [ext_resource type="PackedScene" uid="uid://cyb7sswn5jx4g" path="res://vampirino.tscn" id="4_ypl30"]
 [ext_resource type="PackedScene" uid="uid://b7gkmkg7l455s" path="res://skelleton.tscn" id="5_d65dd"]
@@ -145,10 +143,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62tl5"]
 size = Vector2(5.88581, 13.4066)
 
+[sub_resource type="GDScript" id="GDScript_3l5gl"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="Main_2" type="Node"]
-script = ExtResource("1_e4cyl")
-coin = ExtResource("2_1fjyj")
-confetti = ExtResource("3_py037")
+script = ExtResource("1_wdq35")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -364,6 +374,7 @@ theme_override_font_sizes/font_size = 50
 text = "return in menu"
 
 [node name="fial_tale" type="Control" parent="."]
+visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -398,23 +409,24 @@ theme_override_fonts/font = ExtResource("4_hv7sa")
 theme_override_font_sizes/font_size = 60
 text = "vose venseu"
 
-[node name="pontos" type="Label" parent="fial_tale"]
+[node name="ScoreLabel" type="Label" parent="fial_tale"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -330.0
-offset_top = 134.0
-offset_right = 351.0
-offset_bottom = 202.0
+offset_left = -332.0
+offset_top = 129.0
+offset_right = 433.0
+offset_bottom = 197.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(132, 34)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_hv7sa")
 theme_override_font_sizes/font_size = 60
-text = "total de pontos:
+text = "total de pontos: 0
 "
+script = SubResource("GDScript_3l5gl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="fial_tale"]
 layout_mode = 1
@@ -445,7 +457,7 @@ theme_override_font_sizes/font_size = 50
 text = "return in menu"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 45.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="button_down" from="UI/UpButton" to="Player" method="_on_up_button_button_down"]

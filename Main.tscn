@@ -150,7 +150,7 @@ coin = ExtResource("2_8qwvk")
 confetti = ExtResource("3_n1orf")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 3.0
 autostart = true
 
 [node name="UI" type="Control" parent="."]
