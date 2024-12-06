@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://1soenn0r8n15"]
+[gd_scene load_steps=32 format=3 uid="uid://1soenn0r8n15"]
 
 [ext_resource type="Script" path="res://main_2.gd" id="1_wdq35"]
 [ext_resource type="FontFile" uid="uid://brgyjv68o5ug3" path="res://Starborn.otf" id="4_hv7sa"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cqitgstckf7uv" path="res://Player/bloom-walk3.png" id="22_68m61"]
 [ext_resource type="Texture2D" uid="uid://isd2bae5q7qq" path="res://Player/bloom-walk4.png" id="23_sars1"]
 [ext_resource type="Script" path="res://GameOver.gd" id="24_q131c"]
+[ext_resource type="AudioStream" uid="uid://c4nwugd2ccmuq" path="res://fase 2.mp3" id="25_fkxoh"]
 
 [sub_resource type="Animation" id="Animation_whoi3"]
 length = 0.001
@@ -459,6 +460,10 @@ text = "return in menu"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_fkxoh")
+autoplay = true
 
 [connection signal="button_down" from="UI/UpButton" to="Player" method="_on_up_button_button_down"]
 [connection signal="button_up" from="UI/UpButton" to="Player" method="_on_up_button_button_up"]

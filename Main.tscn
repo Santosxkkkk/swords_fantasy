@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ce5gsk57vt00s"]
+[gd_scene load_steps=32 format=3 uid="uid://ce5gsk57vt00s"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_kybbk"]
 [ext_resource type="PackedScene" uid="uid://woia2loyyxwe" path="res://Coin.tscn" id="2_8qwvk"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cqitgstckf7uv" path="res://Player/bloom-walk3.png" id="15_8d6xm"]
 [ext_resource type="Texture2D" uid="uid://bb68fm7cvmu2v" path="res://Player/bloom-front4.png" id="15_h4x7f"]
 [ext_resource type="Texture2D" uid="uid://isd2bae5q7qq" path="res://Player/bloom-walk4.png" id="16_ei1mq"]
+[ext_resource type="AudioStream" uid="uid://cg5n61gk4d83d" path="res://fase 1.mp3" id="26_1wt3j"]
 
 [sub_resource type="Animation" id="Animation_whoi3"]
 length = 0.001
@@ -150,7 +151,7 @@ coin = ExtResource("2_8qwvk")
 confetti = ExtResource("3_n1orf")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 30.0
 autostart = true
 
 [node name="UI" type="Control" parent="."]
@@ -358,11 +359,14 @@ theme_override_font_sizes/font_size = 50
 text = "revive"
 
 [node name="HomeButton" type="Button" parent="GameOver/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_4d4pm")
 theme_override_font_sizes/font_size = 50
 text = "return in menu"
+
+[node name="musica fase 1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_1wt3j")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_down" from="UI/UpButton" to="Player" method="_on_up_button_button_down"]
